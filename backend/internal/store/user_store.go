@@ -14,7 +14,7 @@ type UserStore interface {
 	CreateUser(ctx context.Context, user *models.User) error
 	UpdateUser(ctx context.Context, user *models.User) error
 	GetUserByEmail(ctx context.Context, email string) (*models.User, error)
-	DeleteUser(ctx context.Context, user *models.User) error
+	DeleteUserByID(ctx context.Context, id uint) error
 }
 
 type userStore struct {
@@ -45,6 +45,10 @@ func (us *userStore) GetUserByEmail(ctx context.Context, email string) (*models.
 	return &user, err
 }
 
-func (us *userStore) DeleteUser(ctx context.Context, user *models.User) error {
-	return us.db.WithContext(ctx).Delete(user).Error
+func (us *userStore) DeleteUserByID(ctx context.Context, id uint) error {
+	result := us.db.WithContext(ctx).Delete(&models.User{}, id)
+	if result.RowsAffected == 0 {
+		return ErrUserNotFound
+	}
+	return result.Error
 }

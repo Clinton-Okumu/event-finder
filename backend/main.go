@@ -38,7 +38,7 @@ func main() {
 		WriteTimeout: 30 * time.Second,
 	}
 
-	application.Logger.Printf("🚀 Starting server on http://localhost:%d", port)
+	application.Logger.Printf("🚀 Starting server on http://localhost:%d/api", port)
 	if err := server.ListenAndServe(); err != nil {
 		application.Logger.Fatal(err)
 	}

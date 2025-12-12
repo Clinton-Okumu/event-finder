@@ -29,6 +29,13 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 		r.Post("/register", app.UserHandler.Register)
 		r.Post("/login", app.UserHandler.Login)
 	})
+	r.Route("/categories", func(r chi.Router) {
+		r.Get("/", app.CategoryHandler.GetCategories)
+		r.Get("/{id}", app.CategoryHandler.GetCategoryByID)
+		r.Post("/", app.CategoryHandler.CreateCategory)
+		r.Put("/{id}", app.CategoryHandler.UpdateCategory)
+		r.Delete("/{id}", app.CategoryHandler.DeleteCategory)
+	})
 
 	return r
 }

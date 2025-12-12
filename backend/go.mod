@@ -7,6 +7,7 @@ require (
 	github.com/go-chi/cors v1.2.2
 	github.com/joho/godotenv v1.5.1
 	golang.org/x/crypto v0.40.0
+	golang.org/x/term v0.33.0
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/gorm v1.31.1
 )
@@ -20,5 +21,6 @@ require (
 	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/stretchr/testify v1.11.0 // indirect
 	golang.org/x/sync v0.16.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
 	golang.org/x/text v0.27.0 // indirect
 )
