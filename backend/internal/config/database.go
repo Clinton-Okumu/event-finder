@@ -69,5 +69,7 @@ func Open() (*gorm.DB, error) {
 func RunMigrations(db *gorm.DB) error {
 	return db.AutoMigrate(
 		&models.User{},
+		&models.Category{},
+		&models.Token{},
 	)
 }

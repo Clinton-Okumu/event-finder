@@ -3,11 +3,13 @@ package api
 import (
 	"backend/internal/models"
 	"backend/internal/store"
+	"backend/internal/tokens"
 	"backend/internal/utils"
 	"encoding/json"
 	"log"
 	"net/http"
 	"strings"
+	"time"
 )
 
 type UserHandler struct {
@@ -81,41 +83,50 @@ func (h *UserHandler) Register(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-// --- Login ---
-type loginRequest struct {
-	Username string `json:"username"`
+type TokenHandler struct {
+	tokenStore store.TokenStore
+	userStore  store.UserStore
+	logger     *log.Logger
+}
+
+type createTokenRequest struct {
 	Email    string `json:"email"`
 	Password string `json:"password"`
 }
 
-func (h *UserHandler) Login(w http.ResponseWriter, r *http.Request) {
-	var input loginRequest
-	if err := h.parseJSON(r, &input); err != nil {
-		h.respondError(w, http.StatusBadRequest, "invalid request format")
+func NewTokenHandler(tokenStore store.TokenStore, userStore store.UserStore, logger *log.Logger) *TokenHandler {
+	return &TokenHandler{
+		tokenStore: tokenStore,
+		userStore:  userStore,
+		logger:     logger,
+	}
+}
+
+func (h *TokenHandler) Login(w http.ResponseWriter, r *http.Request) {
+	var req createTokenRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		h.logger.Printf("ERROR decoding createTokenRequest: %v", err)
+		utils.WriteJSON(w, http.StatusBadRequest, utils.Envelope{"error": "Invalid request body"})
 		return
 	}
 
-	input.Email = strings.TrimSpace(input.Email)
-	input.Password = strings.TrimSpace(input.Password)
-
-	if input.Email == "" || input.Password == "" {
-		h.respondError(w, http.StatusBadRequest, "email and password are required")
-		return
-	}
-
-	user, err := h.userStore.GetUserByEmail(r.Context(), input.Email)
+	user, err := h.userStore.GetUserByEmail(r.Context(), req.Email)
 	if err != nil {
-		h.logger.Printf("ERROR: retrieving user: %v", err)
-		h.respondError(w, http.StatusUnauthorized, "invalid email or password")
+		h.logger.Printf("ERROR finding user: %v", err)
+		utils.WriteJSON(w, http.StatusUnauthorized, utils.Envelope{"error": "Invalid credentials"})
 		return
 	}
 
-	if !user.CheckPassword(input.Password) {
-		h.respondError(w, http.StatusUnauthorized, "invalid email or password")
+	tokenModel, plaintext, err := h.tokenStore.CreateNewToken(r.Context(), user.ID, 24*time.Hour, tokens.ScopeAuth)
+	if err != nil {
+		h.logger.Printf("ERROR creating token: %v", err)
+		utils.WriteJSON(w, http.StatusInternalServerError, utils.Envelope{"error": "Failed to generate token"})
 		return
 	}
 
-	utils.WriteJSON(w, http.StatusOK, utils.Envelope{
+	utils.WriteJSON(w, http.StatusCreated, utils.Envelope{
+		"token":  plaintext,
+		"expiry": tokenModel.Expiry,
 		"user": map[string]any{
 			"id":       user.ID,
 			"username": user.Username,

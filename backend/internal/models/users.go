@@ -14,8 +14,14 @@ type User struct {
 	gorm.Model
 }
 
-func (u *User) SetPassword(raw string) error {
-	hash, err := bcrypt.GenerateFromPassword([]byte(raw), bcrypt.DefaultCost)
+var AnonymousUser = &User{}
+
+func (u *User) IsAnonymous() bool {
+	return u == AnonymousUser
+}
+
+func (u *User) SetPassword(plaintextPassword string) error {
+	hash, err := bcrypt.GenerateFromPassword([]byte(plaintextPassword), 12)
 	if err != nil {
 		return err
 	}
@@ -23,11 +29,13 @@ func (u *User) SetPassword(raw string) error {
 	return nil
 }
 
-func (u *User) CheckPassword(raw string) bool {
-	err := bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(raw))
-	return err == nil
-}
-
-func (u *User) IsAdmin() bool {
-	return u.Role == "admin"
+func (u *User) CheckPassword(plaintext string) (bool, error) {
+	err := bcrypt.CompareHashAndPassword([]byte(u.Password), []byte(plaintext))
+	if err != nil {
+		if err == bcrypt.ErrMismatchedHashAndPassword {
+			return false, nil
+		}
+		return false, err
+	}
+	return true, nil
 }

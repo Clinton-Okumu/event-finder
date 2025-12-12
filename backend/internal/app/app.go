@@ -3,6 +3,7 @@ package app
 import (
 	"backend/internal/api"
 	"backend/internal/config"
+	"backend/internal/middleware"
 	"backend/internal/store"
 	"fmt"
 	"log"
@@ -18,6 +19,8 @@ type Application struct {
 	Logger          *log.Logger
 	UserHandler     *api.UserHandler
 	CategoryHandler *api.CategoryHandler
+	TokenHandler    *api.TokenHandler
+	Middleware      middleware.UserMiddleware
 }
 
 func NewApplication() (*Application, error) {
@@ -40,16 +43,21 @@ func NewApplication() (*Application, error) {
 	//stores
 	userStore := store.NewUserStore(db)
 	categoryStore := store.NewCategoryStore(db)
+	tokenStore := store.NewTokenStore(db)
 
 	//handlers
 	userHandler := api.NewUserHandler(userStore, logger)
 	categoryHandler := api.NewCategoryHandler(categoryStore, logger)
+	tokenHandler := api.NewTokenHandler(tokenStore, userStore, logger)
+	middlewareHandler := middleware.UserMiddleware{UserStore: userStore}
 
 	app := &Application{
 		DB:              db,
 		Logger:          logger,
 		UserHandler:     userHandler,
 		CategoryHandler: categoryHandler,
+		TokenHandler:    tokenHandler,
+		Middleware:      middlewareHandler,
 	}
 	return app, nil
 }
