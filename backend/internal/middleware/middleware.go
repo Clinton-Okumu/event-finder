@@ -61,7 +61,7 @@ func (um *UserMiddleware) Authenticate(next http.Handler) http.Handler {
 	})
 }
 
-func (um *UserMiddleware) RequireUser(next http.HandlerFunc) http.HandlerFunc {
+func (um *UserMiddleware) RequireUser(next http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		user := GetUser(r)
 		if user.IsAnonymous() {
@@ -70,4 +70,23 @@ func (um *UserMiddleware) RequireUser(next http.HandlerFunc) http.HandlerFunc {
 		}
 		next.ServeHTTP(w, r)
 	}
+}
+
+func (um *UserMiddleware) RequireAdmin(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		user := GetUser(r)
+		if user.IsAnonymous() {
+			utils.WriteJSON(w, http.StatusUnauthorized, utils.Envelope{
+				"error": "You must be logged in",
+			})
+			return
+		}
+		if !user.IsAdmin() {
+			utils.WriteJSON(w, http.StatusForbidden, utils.Envelope{
+				"error": "Admin access required",
+			})
+			return
+		}
+		next.ServeHTTP(w, r)
+	})
 }

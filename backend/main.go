@@ -1,15 +1,27 @@
 package main
 
 import (
+	"backend/cmd/admin"
 	"backend/internal/app"
 	"backend/internal/routes"
 	"flag"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 )
 
 func main() {
+
+	// cli commands(admin)
+	if len(os.Args) > 1 {
+		switch os.Args[1] {
+		case "create-admin":
+			admin.CreateAdmin()
+			return
+		}
+	}
+
 	var port int
 	flag.IntVar(&port, "port", 8080, "Event-finder backend server port")
 	flag.Parse()

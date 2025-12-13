@@ -20,6 +20,7 @@ type Application struct {
 	UserHandler     *api.UserHandler
 	CategoryHandler *api.CategoryHandler
 	TokenHandler    *api.TokenHandler
+	EventHandler    *api.EventsHandler
 	Middleware      middleware.UserMiddleware
 }
 
@@ -44,11 +45,13 @@ func NewApplication() (*Application, error) {
 	userStore := store.NewUserStore(db)
 	categoryStore := store.NewCategoryStore(db)
 	tokenStore := store.NewTokenStore(db)
+	eventStore := store.NewEventStore(db)
 
 	//handlers
 	userHandler := api.NewUserHandler(userStore, logger)
 	categoryHandler := api.NewCategoryHandler(categoryStore, logger)
 	tokenHandler := api.NewTokenHandler(tokenStore, userStore, logger)
+	eventHandler := api.NewEventsHandler(eventStore, logger)
 	middlewareHandler := middleware.UserMiddleware{UserStore: userStore}
 
 	app := &Application{
@@ -57,6 +60,7 @@ func NewApplication() (*Application, error) {
 		UserHandler:     userHandler,
 		CategoryHandler: categoryHandler,
 		TokenHandler:    tokenHandler,
+		EventHandler:    eventHandler,
 		Middleware:      middlewareHandler,
 	}
 	return app, nil

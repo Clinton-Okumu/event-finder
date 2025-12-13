@@ -28,15 +28,42 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 
 	// API routes
 	r.Group(func(r chi.Router) {
+		// All API routes require authentication
 		r.Use(app.Middleware.Authenticate)
+
+		// Users
 		r.Route("/users", func(r chi.Router) {
+			// Add user-specific routes here if needed
 		})
+
+		// Categories
 		r.Route("/categories", func(r chi.Router) {
+			// Public routes
 			r.Get("/", app.CategoryHandler.GetCategories)
 			r.Get("/{id}", app.CategoryHandler.GetCategoryByID)
-			r.Post("/", app.CategoryHandler.CreateCategory)
-			r.Put("/{id}", app.CategoryHandler.UpdateCategory)
-			r.Delete("/{id}", app.CategoryHandler.DeleteCategory)
+
+			// Admin-only routes for categories
+			r.Group(func(r chi.Router) {
+				r.Use(app.Middleware.RequireAdmin)
+				r.Post("/", app.CategoryHandler.CreateCategory)
+				r.Put("/{id}", app.CategoryHandler.UpdateCategory)
+				r.Delete("/{id}", app.CategoryHandler.DeleteCategory)
+			})
+		})
+
+		// Events
+		r.Route("/events", func(r chi.Router) {
+			// All event routes require authentication
+			r.Get("/", app.EventHandler.GetEvents)
+			r.Get("/{id}", app.EventHandler.GetEventByID)
+
+			// Admin-only routes for events
+			r.Group(func(r chi.Router) {
+				r.Use(app.Middleware.RequireAdmin)
+				r.Post("/", app.EventHandler.CreateEvent)
+				r.Put("/{id}", app.EventHandler.UpdateEvent)
+				r.Delete("/{id}", app.EventHandler.DeleteEvent)
+			})
 		})
 	})
 

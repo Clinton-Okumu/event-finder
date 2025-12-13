@@ -20,6 +20,10 @@ func (u *User) IsAnonymous() bool {
 	return u == AnonymousUser
 }
 
+func (u *User) IsAdmin() bool {
+	return u.Role == "admin"
+}
+
 func (u *User) SetPassword(plaintextPassword string) error {
 	hash, err := bcrypt.GenerateFromPassword([]byte(plaintextPassword), 12)
 	if err != nil {
