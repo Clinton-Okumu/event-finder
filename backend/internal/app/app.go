@@ -52,7 +52,7 @@ func NewApplication() (*Application, error) {
 	categoryHandler := api.NewCategoryHandler(categoryStore, logger)
 	tokenHandler := api.NewTokenHandler(tokenStore, userStore, logger)
 	eventHandler := api.NewEventsHandler(eventStore, logger)
-	middlewareHandler := middleware.UserMiddleware{UserStore: userStore}
+	middlewareHandler := middleware.UserMiddleware{UserStore: userStore, TokenStore: tokenStore}
 
 	app := &Application{
 		DB:              db,

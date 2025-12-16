@@ -23,7 +23,7 @@ type Event struct {
 	EndTime          time.Time      `gorm:"not null" json:"end_time"`
 	CreatedByID      uint           `gorm:"not null" json:"created_by"`
 	Creator          *User          `gorm:"foreignKey:CreatedByID" json:"creator,omitempty"`
-	Status           EventStatus    `gorm:"type:enum('pending','confirmed','canceled');default:'pending';not null" json:"status"`
+	Status           EventStatus    `gorm:"type:varchar(20);default:'pending';not null" json:"status"`
 	ImageURL         string         `gorm:"size:500;not null" json:"image_url"`
 	TotalTickets     int            `gorm:"not null" json:"total_tickets"`
 	TicketsRemaining int            `gorm:"not null" json:"tickets_remaining"`
