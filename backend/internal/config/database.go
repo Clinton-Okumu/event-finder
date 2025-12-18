@@ -77,5 +77,7 @@ func RunMigrations(db *gorm.DB) error {
 		&models.Category{},
 		&models.Token{},
 		&models.Event{},
+		&models.EventTicket{},
+		&models.Booking{},
 	)
 }

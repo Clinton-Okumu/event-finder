@@ -65,6 +65,51 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 				r.Delete("/{id}", app.EventHandler.DeleteEvent)
 			})
 		})
+
+		//Event tickets
+		r.Route("/event_tickets", func(r chi.Router) {
+			// All event ticket routes require authentication
+			r.Get("/", app.EventTicketHandler.GetEventTickets)
+			r.Get("/{id}", app.EventTicketHandler.GetEventTicketByID)
+
+			// Admin-only routes for event tickets
+			r.Group(func(r chi.Router) {
+				r.Use(app.Middleware.RequireAdmin)
+				r.Post("/", app.EventTicketHandler.CreateEventTicket)
+				r.Put("/{id}", app.EventTicketHandler.UpdateEventTicket)
+				r.Delete("/{id}", app.EventTicketHandler.DeleteEventTicket)
+			})
+		})
+
+		//Bookings
+		r.Route("/bookings", func(r chi.Router) {
+			// All booking routes require authentication
+			r.Get("/", app.BookingHandler.GetBookings)
+			r.Get("/{id}", app.BookingHandler.GetBookingByID)
+
+			// Admin-only routes for bookings
+			r.Group(func(r chi.Router) {
+				r.Use(app.Middleware.RequireAdmin)
+				r.Post("/", app.BookingHandler.CreateBooking)
+				r.Put("/{id}", app.BookingHandler.UpdateBooking)
+				r.Delete("/{id}", app.BookingHandler.DeleteBooking)
+			})
+		})
+
+		// Booking items
+		r.Route("/booking_items", func(r chi.Router) {
+			// All booking item routes require authentication
+			r.Get("/", app.BookingItemHandler.GetBookingItems)
+			r.Get("/{id}", app.BookingItemHandler.GetBookingItemByID)
+
+			// Admin-only routes for booking items
+			r.Group(func(r chi.Router) {
+				r.Use(app.Middleware.RequireAdmin)
+				r.Post("/", app.BookingItemHandler.CreateBookingItem)
+				r.Put("/{id}", app.BookingItemHandler.UpdateBookingItem)
+				r.Delete("/{id}", app.BookingItemHandler.DeleteBookingItem)
+			})
+		})
 	})
 
 	return r
