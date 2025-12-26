@@ -1,6 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import Modal from "@/components/ui/modal";
+import LoginForm from "@/components/features/auth/LoginForm";
+import SignupForm from "@/components/features/auth/SignUpForm";
+import { User } from "@/lib/types/types";
 import logo from "@/public/event.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +24,9 @@ export default function Navbar() {
 
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
+    const [user, setUser] = useState<User | null>(null);
 
     const isActive = (href: string) => pathname === href;
 
@@ -28,8 +36,35 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handler);
     }, []);
 
-    // Mock user — replace with real logic
-    const user = null;
+    useEffect(() => {
+        const checkUser = () => {
+            const storedUser = localStorage.getItem("user");
+            if (storedUser) {
+                setUser(JSON.parse(storedUser));
+            }
+        };
+        checkUser();
+        window.addEventListener("storage", checkUser);
+        return () => window.removeEventListener("storage", checkUser);
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        setUser(null);
+    };
+
+    const handleLoginSuccess = (loggedInUser: User) => {
+        setUser(loggedInUser);
+        setShowLoginModal(false);
+    };
+
+    const handleSignupSuccess = () => {
+        setShowSignupModal(false);
+        setTimeout(() => {
+            setShowLoginModal(true);
+        }, 500);
+    };
 
     return (
         <>
@@ -83,21 +118,25 @@ export default function Navbar() {
 
                     {/* DESKTOP AUTH */}
                     <div className="hidden md:flex items-center gap-4">
+                        <ThemeToggle />
                         {!user ? (
                             <>
-                                <Button variant="default">
+                                <Button onClick={() => setShowLoginModal(true)}>
                                     Login
                                 </Button>
-                                <Button variant="outline">
+                                <Button variant="outline" onClick={() => setShowSignupModal(true)}>
                                     Signup
                                 </Button>
                             </>
                         ) : (
                             <>
                                 <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">
-                                    {user.name.charAt(0).toUpperCase()}
+                                    {user?.username?.charAt(0)?.toUpperCase()}
                                 </div>
-                                <button className="text-sm text-foreground/80 hover:text-primary">
+                                <button
+                                    onClick={handleLogout}
+                                    className="text-sm text-foreground/80 hover:text-primary transition-colors"
+                                >
                                     Logout
                                 </button>
                             </>
@@ -163,29 +202,61 @@ export default function Navbar() {
                             ))}
 
                             {/* MOBILE AUTH */}
-                            {!user ? (
-                                <div className="flex flex-col gap-3 pt-3">
-                                    <Button variant="default">
-                                        Login
-                                    </Button>
-                                    <Button>
-                                        Signup
-                                    </Button>
-                                </div>
-                            ) : (
-                                <div className="flex items-center gap-3 pt-4">
-                                    <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">
-                                        {user.name.charAt(0)}
+                            <div className="flex items-center justify-between pt-3">
+                                <ThemeToggle />
+                                {!user ? (
+                                    <div className="flex flex-col gap-3">
+                                        <Button onClick={() => {
+                                            setShowLoginModal(true);
+                                            setOpen(false);
+                                        }}>
+                                            Login
+                                        </Button>
+                                        <Button variant="outline" onClick={() => {
+                                            setShowSignupModal(true);
+                                            setOpen(false);
+                                        }}>
+                                            Signup
+                                        </Button>
                                     </div>
-                                    <button className="text-sm font-medium text-foreground/80 hover:text-primary">
-                                        Logout
-                                    </button>
-                                </div>
-                            )}
+                                ) : (
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">
+                                            {user?.username?.charAt(0)?.toUpperCase()}
+                                        </div>
+                                        <button
+                                            onClick={() => {
+                                                handleLogout();
+                                                setOpen(false);
+                                            }}
+                                            className="text-sm font-medium text-foreground/80 hover:text-primary"
+                                        >
+                                            Logout
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         </ul>
                     </div>
                 )}
             </header>
+
+            {/* MODALS */}
+            <Modal
+                title="Login to your account"
+                isOpen={showLoginModal}
+                onClose={() => setShowLoginModal(false)}
+            >
+                <LoginForm onSuccess={handleLoginSuccess} />
+            </Modal>
+
+            <Modal
+                title="Create a new account"
+                isOpen={showSignupModal}
+                onClose={() => setShowSignupModal(false)}
+            >
+                <SignupForm onSuccess={handleSignupSuccess} />
+            </Modal>
         </>
     );
 }

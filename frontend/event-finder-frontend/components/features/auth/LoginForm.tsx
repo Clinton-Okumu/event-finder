@@ -1,81 +1,79 @@
 "use client";
 
 import { login } from "@/lib/api/auth";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { User } from "@/lib/types/types";
 import React, { useState } from "react";
 
 interface LoginFormProps {
-    onSuccess?: () => void;
+    onSuccess?: (user: User) => void;
 }
 
 const LoginForm = ({ onSuccess }: LoginFormProps) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError("");
+        setLoading(true);
 
         try {
             const res = await login({ email, password });
             localStorage.setItem("token", res.token);
             localStorage.setItem("user", JSON.stringify(res.user));
 
-            if (onSuccess) onSuccess(); // close modal
-
-            // You can also store user data here if returned
-            // localStorage.setItem("user", JSON.stringify(res.user));
-        } catch (err: any) {
-            setError(err.message || "Login failed");
+            if (onSuccess) {
+                onSuccess(res.user);
+            }
+        } catch (err: unknown) {
+            setError(err instanceof Error ? err.message : "Login failed");
+        } finally {
+            setLoading(false);
         }
     };
 
     return (
         <form className="space-y-4" onSubmit={handleSubmit}>
-            {error && <div className="text-red-500 text-sm font-medium">{error}</div>}
+            {error && (
+                <div className="text-destructive text-sm font-medium p-3 rounded-md bg-destructive/10 border border-destructive/20">
+                    {error}
+                </div>
+            )}
 
-            <div>
-                <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Email Address
-                </label>
-                <input
+            <div className="space-y-2">
+                <Label htmlFor="email">Email Address</Label>
+                <Input
                     type="email"
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="mt-1 w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     placeholder="you@example.com"
+                    required
+                    disabled={loading}
                 />
             </div>
 
-            <div>
-                <label
-                    htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
-                >
-                    Password
-                </label>
-                <input
+            <div className="space-y-2">
+                <Label htmlFor="password">Password</Label>
+                <Input
                     type="password"
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    placeholder="•••••••"
                     required
-                    className="mt-1 w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                    placeholder="••••••••"
+                    disabled={loading}
                 />
             </div>
 
-            <button
-                type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-md shadow transition-all"
-            >
-                Login
-            </button>
+            <Button type="submit" className="w-full" disabled={loading}>
+                {loading ? "Logging in..." : "Login"}
+            </Button>
         </form>
     );
 };

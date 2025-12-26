@@ -5,11 +5,11 @@ import Image from "next/image";
 
 const Footer = () => {
     return (
-        <footer className="bg-neutral-50 text-neutral-700 pt-12 pb-6 shadow-inner">
+        <footer className="bg-muted text-foreground pt-12 pb-6 shadow-inner">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Top */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-neutral-200 pb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-border pb-10">
 
                     {/* Logo */}
                     <div>
@@ -20,7 +20,7 @@ const Footer = () => {
                             </span>
                         </div>
 
-                        <p className="mt-4 text-sm opacity-70">
+                        <p className="mt-4 text-sm text-muted-foreground">
                             Explore the world with confidence. Book your next adventure with Event-Finder.
                         </p>
                     </div>
@@ -48,18 +48,18 @@ const Footer = () => {
                     {/* Newsletter */}
                     <div>
                         <h4 className="font-semibold mb-4">Subscribe</h4>
-                        <p className="text-sm opacity-70 mb-4">
+                        <p className="text-sm text-muted-foreground mb-4">
                             Get updates on new tours and offers.
                         </p>
                         <form className="flex flex-col sm:flex-row gap-2">
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="px-4 py-2 rounded-md border border-neutral-300 focus:outline-none focus:ring-1 focus:ring-neutral-400"
+                                className="px-4 py-2 rounded-md border border-border focus:outline-none focus:ring-1 focus:ring-primary"
                             />
                             <button
                                 type="submit"
-                                className="px-4 py-2 rounded-md border border-neutral-300 hover:bg-neutral-100 transition"
+                                className="px-4 py-2 rounded-md border border-border hover:bg-accent transition"
                             >
                                 Subscribe
                             </button>
@@ -68,7 +68,7 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom */}
-                <div className="flex flex-col sm:flex-row justify-between items-center mt-8 text-sm opacity-80">
+                <div className="flex flex-col sm:flex-row justify-between items-center mt-8 text-sm text-muted-foreground">
                     <p>&copy; {new Date().getFullYear()} Event-Finder. All rights reserved.</p>
 
                     <div className="flex gap-4 mt-4 sm:mt-0">
