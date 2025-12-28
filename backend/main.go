@@ -4,10 +4,10 @@ import (
 	"backend/cmd/admin"
 	"backend/internal/app"
 	"backend/internal/routes"
-	"flag"
 	"fmt"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 )
 
@@ -23,8 +23,11 @@ func main() {
 	}
 
 	var port int
-	flag.IntVar(&port, "port", 8080, "Event-finder backend server port")
-	flag.Parse()
+	serverPortStr := os.Getenv("PORT")
+	port, err := strconv.Atoi(serverPortStr)
+	if err != nil || port <= 0 {
+		port = 5000
+	}
 
 	// initialize the Application struct
 	application, err := app.NewApplication()

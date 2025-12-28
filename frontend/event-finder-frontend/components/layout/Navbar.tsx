@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
-import Modal from "@/components/ui/modal";
 import LoginForm from "@/components/features/auth/LoginForm";
 import SignupForm from "@/components/features/auth/SignUpForm";
+import { Button } from "@/components/ui/button";
+import Modal from "@/components/ui/modal";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { User } from "@/lib/types/types";
 import logo from "@/public/event.png";
 import Image from "next/image";
@@ -16,7 +16,8 @@ const links = [
     { id: 1, title: "Home", href: "/" },
     { id: 2, title: "MyTickets", href: "/tickets" },
     { id: 3, title: "Events", href: "/events" },
-    { id: 4, title: "Help", href: "/help" },
+    { id: 4, title: "About us", href: "/about" },
+    { id: 5, title: "Customer Support", href: "/support" },
 ];
 
 export default function Navbar() {
@@ -70,7 +71,7 @@ export default function Navbar() {
         <>
             {/* NAVBAR */}
             <header
-                className={`sticky top-0 z-50 w-full border-b border-border transition-all duration-300 
+                className={`sticky shadow-lg top-0 z-50 w-full border-b border-border transition-all duration-300 
           ${scrolled ? "bg-background shadow-md" : "bg-background/95 backdrop-blur-sm"}
         `}
             >
@@ -133,12 +134,12 @@ export default function Navbar() {
                                 <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-lg">
                                     {user?.username?.charAt(0)?.toUpperCase()}
                                 </div>
-                                <button
+                                <Button variant={"outline"}
                                     onClick={handleLogout}
                                     className="text-sm text-foreground/80 hover:text-primary transition-colors"
                                 >
                                     Logout
-                                </button>
+                                </Button>
                             </>
                         )}
                     </div>

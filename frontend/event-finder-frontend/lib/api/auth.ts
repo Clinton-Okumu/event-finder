@@ -1,6 +1,10 @@
 import { LoginRequest, RegisterRequest } from "../types/types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/";
+const API_URL =
+  (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/").replace(
+    /\/$/,
+    "",
+  ) + "/";
 
 export async function login(data: LoginRequest) {
   const res = await fetch(`${API_URL}login`, {
