@@ -20,12 +20,18 @@ export default function Events({ events }: { events: Event[] }) {
       {events.map((event) => (
         <Card key={event.id} className="group hover:shadow-lg transition-shadow duration-200">
           <div className="relative h-52 w-full overflow-hidden">
-            <Image
-              src={event.image}
-              alt={event.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-200"
-            />
+            {event.image_url ? (
+              <Image
+                src={event.image_url}
+                alt={event.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-200"
+              />
+            ) : (
+              <div className="w-full h-full bg-muted flex items-center justify-center">
+                <span className="text-muted-foreground">No Image</span>
+              </div>
+            )}
             <Badge variant="secondary" className="absolute top-3 right-3 shadow-md">
               {event.date}
             </Badge>
@@ -40,7 +46,9 @@ export default function Events({ events }: { events: Event[] }) {
           </CardContent>
 
           <CardFooter className="flex items-center justify-between pt-0">
-            <span className="text-primary font-bold">From ${event.price}</span>
+            <span className="text-primary font-bold">
+              {event.price !== undefined ? `From $${event.price}` : "Price TBD"}
+            </span>
             <Button size="sm">Get Tickets</Button>
           </CardFooter>
         </Card>

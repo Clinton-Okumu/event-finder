@@ -19,7 +19,16 @@ export default function EventsGrid({ events }: EventsGridProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
       {events.map((event) => (
-        <EventCard key={event.id} event={event} />
+        <EventCard
+          key={event.id}
+          id={event.id}
+          title={event.title}
+          date={event.date}
+          image_url={event.image_url}
+          location={event.location}
+          description={event.description}
+          price={event.price}
+        />
       ))}
     </div>
   );
