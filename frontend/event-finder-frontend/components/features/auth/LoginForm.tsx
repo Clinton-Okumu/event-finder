@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { User } from "@/lib/types/types";
 import React, { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface LoginFormProps {
     onSuccess?: (user: User) => void;
@@ -16,6 +17,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const { login: authLogin } = useAuth();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -24,8 +26,7 @@ const LoginForm = ({ onSuccess }: LoginFormProps) => {
 
         try {
             const res = await login({ email, password });
-            localStorage.setItem("token", res.token);
-            localStorage.setItem("user", JSON.stringify(res.user));
+            authLogin(res.user, res.token);
 
             if (onSuccess) {
                 onSuccess(res.user);

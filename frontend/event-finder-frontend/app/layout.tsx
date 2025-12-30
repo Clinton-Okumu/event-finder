@@ -1,6 +1,7 @@
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
+import { AuthProvider } from "@/contexts/AuthContext";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
@@ -43,9 +44,11 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <Navbar />
-                    {children}
-                    <Footer />
+                    <AuthProvider>
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </AuthProvider>
                 </ThemeProvider>
             </body>
         </html>

@@ -11,6 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const links = [
     { id: 1, title: "Home", href: "/" },
@@ -22,12 +23,12 @@ const links = [
 
 export default function Navbar() {
     const pathname = usePathname();
+    const { user, loading, login, logout } = useAuth();
 
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
-    const [user, setUser] = useState<User | null>(null);
 
     const isActive = (href: string) => pathname === href;
 
@@ -37,27 +38,16 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handler);
     }, []);
 
-    useEffect(() => {
-        const checkUser = () => {
-            const storedUser = localStorage.getItem("user");
-            if (storedUser) {
-                setUser(JSON.parse(storedUser));
-            }
-        };
-        checkUser();
-        window.addEventListener("storage", checkUser);
-        return () => window.removeEventListener("storage", checkUser);
-    }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        setUser(null);
+    const handleLogout = async () => {
+        await logout();
     };
 
     const handleLoginSuccess = (loggedInUser: User) => {
-        setUser(loggedInUser);
-        setShowLoginModal(false);
+        const token = localStorage.getItem("token");
+        if (token) {
+            login(loggedInUser, token);
+            setShowLoginModal(false);
+        }
     };
 
     const handleSignupSuccess = () => {
@@ -120,7 +110,9 @@ export default function Navbar() {
                     {/* DESKTOP AUTH */}
                     <div className="hidden md:flex items-center gap-4">
                         <ThemeToggle />
-                        {!user ? (
+                        {loading ? (
+                            <span className="text-sm text-muted-foreground">Loading...</span>
+                        ) : !user ? (
                             <>
                                 <Button onClick={() => setShowLoginModal(true)}>
                                     Login
@@ -205,7 +197,9 @@ export default function Navbar() {
                             {/* MOBILE AUTH */}
                             <div className="flex items-center justify-between pt-3">
                                 <ThemeToggle />
-                                {!user ? (
+                                {loading ? (
+                                    <span className="text-sm text-muted-foreground">Loading...</span>
+                                ) : !user ? (
                                     <div className="flex flex-col gap-3">
                                         <Button onClick={() => {
                                             setShowLoginModal(true);
@@ -226,8 +220,8 @@ export default function Navbar() {
                                             {user?.username?.charAt(0)?.toUpperCase()}
                                         </div>
                                         <button
-                                            onClick={() => {
-                                                handleLogout();
+                                            onClick={async () => {
+                                                await handleLogout();
                                                 setOpen(false);
                                             }}
                                             className="text-sm font-medium text-foreground/80 hover:text-primary"

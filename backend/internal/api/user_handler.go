@@ -1,6 +1,7 @@
 package api
 
 import (
+	"backend/internal/middleware"
 	"backend/internal/models"
 	"backend/internal/store"
 	"backend/internal/tokens"
@@ -102,6 +103,10 @@ func NewTokenHandler(tokenStore store.TokenStore, userStore store.UserStore, log
 	}
 }
 
+func (h *TokenHandler) respondError(w http.ResponseWriter, status int, msg string) {
+	utils.WriteJSON(w, status, utils.Envelope{"error": msg})
+}
+
 func (h *TokenHandler) Login(w http.ResponseWriter, r *http.Request) {
 	var req createTokenRequest
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -134,4 +139,40 @@ func (h *TokenHandler) Login(w http.ResponseWriter, r *http.Request) {
 			"role":     user.Role,
 		},
 	})
+}
+
+func (h *TokenHandler) ValidateToken(w http.ResponseWriter, r *http.Request) {
+	user := middleware.GetUser(r)
+
+	if user.IsAnonymous() {
+		h.respondError(w, http.StatusUnauthorized, "Invalid or expired token")
+		return
+	}
+
+	utils.WriteJSON(w, http.StatusOK, utils.Envelope{
+		"user": map[string]any{
+			"id":       user.ID,
+			"username": user.Username,
+			"email":    user.Email,
+			"role":     user.Role,
+		},
+	})
+}
+
+func (h *TokenHandler) Logout(w http.ResponseWriter, r *http.Request) {
+	user := middleware.GetUser(r)
+
+	if user.IsAnonymous() {
+		utils.WriteJSON(w, http.StatusOK, utils.Envelope{"message": "Already logged out"})
+		return
+	}
+
+	err := h.tokenStore.DeleteAllTokensForUser(r.Context(), user.ID, tokens.ScopeAuth)
+	if err != nil {
+		h.logger.Printf("ERROR deleting tokens: %v", err)
+		h.respondError(w, http.StatusInternalServerError, "Failed to logout")
+		return
+	}
+
+	utils.WriteJSON(w, http.StatusOK, utils.Envelope{"message": "Logged out successfully"})
 }
