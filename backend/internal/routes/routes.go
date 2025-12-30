@@ -25,13 +25,15 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 	r.Get("/health", app.HealthChecker)
 	r.Post("/register", app.UserHandler.Register)
 	r.Post("/login", app.TokenHandler.Login)
-	r.Get("/validate-token", app.TokenHandler.ValidateToken)
-	r.Post("/logout", app.TokenHandler.Logout)
 
 	// API routes
 	r.Group(func(r chi.Router) {
 		// All API routes require authentication
 		r.Use(app.Middleware.Authenticate)
+
+		// Auth routes
+		r.Get("/validate-token", app.TokenHandler.ValidateToken)
+		r.Post("/logout", app.TokenHandler.Logout)
 
 		// Users
 		r.Route("/users", func(r chi.Router) {

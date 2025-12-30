@@ -19,6 +19,9 @@ func main() {
 		case "create-admin":
 			admin.CreateAdmin()
 			return
+		case "seed-data":
+			admin.SeedData()
+			return
 		}
 	}
 

@@ -29,6 +29,7 @@ type Event struct {
 	TicketsRemaining int            `gorm:"not null" json:"tickets_remaining"`
 	CategoryID       uint           `gorm:"not null" json:"category_id"`
 	Category         *Category      `gorm:"foreignKey:CategoryID" json:"category,omitempty"`
+	Price            float64        `gorm:"type:numeric(10,2);default:0" json:"price"`
 	CreatedAt        time.Time      `gorm:"autoCreateTime" json:"created_at"`
 	UpdatedAt        time.Time      `gorm:"autoUpdateTime" json:"updated_at"`
 	DeletedAt        gorm.DeletedAt `gorm:"index" json:"-"`

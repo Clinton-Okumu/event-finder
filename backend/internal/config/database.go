@@ -72,12 +72,22 @@ func Open() (*gorm.DB, error) {
 
 // RunMigrations auto-migrates your GORM models
 func RunMigrations(db *gorm.DB) error {
-	return db.AutoMigrate(
+	if err := db.AutoMigrate(
 		&models.User{},
 		&models.Category{},
 		&models.Token{},
 		&models.Event{},
 		&models.EventTicket{},
 		&models.Booking{},
-	)
+	); err != nil {
+		return err
+	}
+
+	if !db.Migrator().HasColumn(&models.Event{}, "price") {
+		if err := db.Migrator().AddColumn(&models.Event{}, "price"); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
