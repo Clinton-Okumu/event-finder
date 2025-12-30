@@ -55,7 +55,9 @@ export async function validateToken() {
   });
 
   if (!res.ok) {
-    return null;
+    const error = new Error("Validation failed") as Error & { status?: number };
+    error.status = res.status;
+    throw error;
   }
 
   return res.json();

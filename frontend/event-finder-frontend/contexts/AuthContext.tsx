@@ -19,6 +19,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const checkAuth = async () => {
+      const storedUser = localStorage.getItem("user");
+      const storedToken = localStorage.getItem("token");
+
+      if (storedUser && storedToken) {
+        try {
+          setUser(JSON.parse(storedUser));
+        } catch {
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+        }
+      }
+
       try {
         const data = await validateToken();
         if (data && data.user) {
@@ -28,9 +40,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           localStorage.removeItem("user");
         }
       } catch (error) {
-        console.error("Auth check failed:", error);
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
+        const err = error as { status?: number };
+        if (err?.status === 401) {
+          localStorage.removeItem("token");
+          localStorage.removeItem("user");
+        }
       } finally {
         setLoading(false);
       }
@@ -46,6 +60,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   const logout = async () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     await apiLogout();
     setUser(null);
   };
