@@ -1,7 +1,14 @@
+"use client";
+
 import { Search } from "lucide-react";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 
-export default function SearchBar() {
+interface SearchBarProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export default function SearchBar({ value, onChange }: SearchBarProps) {
     return (
         <div className="mb-6">
             <InputGroup>
@@ -11,6 +18,8 @@ export default function SearchBar() {
                 <InputGroupInput
                     type="text"
                     placeholder="Search events..."
+                    value={value}
+                    onChange={(e) => onChange(e.target.value)}
                 />
             </InputGroup>
         </div>
