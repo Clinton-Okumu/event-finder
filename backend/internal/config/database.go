@@ -79,6 +79,7 @@ func RunMigrations(db *gorm.DB) error {
 		&models.Event{},
 		&models.EventTicket{},
 		&models.Booking{},
+		&models.BookingItem{},
 	); err != nil {
 		return err
 	}

@@ -15,6 +15,7 @@ type BookingStore interface {
 	UpdateBooking(ctx context.Context, booking *models.Booking) error
 	GetBooking(ctx context.Context, id uint) (*models.Booking, error)
 	GetBookings(ctx context.Context, limit, offset int, orderBy string) ([]models.Booking, error)
+	GetBookingsByUserID(ctx context.Context, userID uint) ([]models.Booking, error)
 	DeleteBooking(ctx context.Context, id uint) error
 }
 
@@ -36,7 +37,11 @@ func (bs *bookingStore) UpdateBooking(ctx context.Context, booking *models.Booki
 
 func (bs *bookingStore) GetBooking(ctx context.Context, id uint) (*models.Booking, error) {
 	var booking models.Booking
-	err := bs.db.WithContext(ctx).First(&booking, id).Error
+	err := bs.db.WithContext(ctx).
+		Preload("Event").
+		Preload("BookingItems").
+		Preload("BookingItems.TicketType").
+		First(&booking, id).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return nil, ErrBookingNotFound
 	}
@@ -62,4 +67,15 @@ func (bs *bookingStore) DeleteBooking(ctx context.Context, id uint) error {
 		return ErrBookingNotFound
 	}
 	return result.Error
+}
+
+func (bs *bookingStore) GetBookingsByUserID(ctx context.Context, userID uint) ([]models.Booking, error) {
+	var bookings []models.Booking
+	err := bs.db.WithContext(ctx).
+		Preload("Event").
+		Preload("BookingItems").
+		Preload("BookingItems.TicketType").
+		Where("user_id = ?", userID).
+		Find(&bookings).Error
+	return bookings, err
 }

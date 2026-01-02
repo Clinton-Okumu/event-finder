@@ -71,13 +71,8 @@ export default function AllEventsPage() {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
-      const eventDate = (dateStr: string) => {
-        const [month, day, year] = dateStr.split("/").map(Number);
-        return new Date(year, month - 1, day);
-      };
-
       filtered = filtered.filter((event) => {
-        const evtDate = eventDate(event.date);
+        const evtDate = new Date(event.start_time);
 
         if (filters.customDate) {
           const filterDate = new Date(filters.customDate);
@@ -144,7 +139,7 @@ export default function AllEventsPage() {
         <main className="flex-1 min-w-0">
           <PageHeader
             title="All Events"
-            subtitle={`This are all the events that are available on Event-Finder`}
+            subtitle={`Showing ${filteredEvents.length} events`}
           />
 
           {filteredEvents.length === 0 ? (

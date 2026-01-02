@@ -24,6 +24,7 @@ type Application struct {
 	EventTicketHandler *api.EventTicketsHandler
 	BookingHandler     *api.BookingsHandler
 	BookingItemHandler *api.BookingItemsHandler
+	TicketsHandler     *api.TicketsHandler
 	Middleware         middleware.UserMiddleware
 }
 
@@ -61,6 +62,7 @@ func NewApplication() (*Application, error) {
 	bookingHandler := api.NewBookingsHandler(bookingStore, logger)
 	bookingItemHandler := api.NewBookingItemsHandler(bookingItemStore, logger)
 	eventTicketHandler := api.NewEventsTicketsHandler(eventTicketStore, logger)
+	ticketsHandler := api.NewTicketsHandler(bookingStore, bookingItemStore, eventTicketStore, eventStore, logger)
 
 	middlewareHandler := middleware.UserMiddleware{UserStore: userStore, TokenStore: tokenStore}
 
@@ -74,6 +76,7 @@ func NewApplication() (*Application, error) {
 		EventTicketHandler: eventTicketHandler,
 		BookingHandler:     bookingHandler,
 		BookingItemHandler: bookingItemHandler,
+		TicketsHandler:     ticketsHandler,
 		Middleware:         middlewareHandler,
 	}
 	return app, nil

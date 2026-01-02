@@ -7,8 +7,8 @@ import PageHeader from "@/components/layout/PageHeader";
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <PageHeader title="About Us" subtitle="Learn more about Event Finder" />
+    <div className="container mx-auto px-3 py-3">
+      <PageHeader title="About Us" subtitle="Learn more about Event-Finder" />
       <AboutHero />
       <AboutMission />
       <AboutStory />

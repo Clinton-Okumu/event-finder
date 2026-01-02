@@ -1,367 +1,975 @@
-2025/12/30 22:39:25 🟢 Connected to the database
+2026/01/02 12:18:11 🟢 Connected to the database
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[2.778ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND table_type = 'BASE TABLE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[3.283ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND table_type = 'BASE TABLE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.268ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.316ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[8.564ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'users'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[12.389ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'users'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.362ms] [34;1m[rows:-][0m SELECT * FROM "users" LIMIT 5
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.425ms] [34;1m[rows:-][0m SELECT * FROM "users" LIMIT 5
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[8.455ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users' AND constraint_type = 'UNIQUE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[9.753ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users' AND constraint_type = 'UNIQUE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[7.223ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[8.766ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'users'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.648ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.667ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'users'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.948ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[1.967ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.482ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'username') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[1.504ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'username') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.772ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[1.499ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.523ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[1.805ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.583ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'role') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[2.247ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'role') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.822ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[2.347ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.274ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.343ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.206ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.336ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'users' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'users' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[1.594ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'users' AND indexname = 'idx_users_deleted_at' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[2.325ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'users' AND indexname = 'idx_users_deleted_at' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.545ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND table_type = 'BASE TABLE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.919ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND table_type = 'BASE TABLE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.145ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.163ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[3.966ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'categories'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.550ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'categories'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.300ms] [34;1m[rows:-][0m SELECT * FROM "categories" LIMIT 5
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.355ms] [34;1m[rows:-][0m SELECT * FROM "categories" LIMIT 5
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[5.119ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'categories' AND constraint_type = 'UNIQUE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[6.070ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'categories' AND constraint_type = 'UNIQUE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[5.534ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'categories'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[8.280ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'categories'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.410ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.391ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'categories'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.288ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.293ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.188ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.249ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.240ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.211ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.187ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.265ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.215ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.251ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.180ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.235ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'categories' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'categories' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.564ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'categories' AND indexname = 'idx_categories_deleted_at' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.635ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'categories' AND indexname = 'idx_categories_deleted_at' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.440ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND table_type = 'BASE TABLE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.475ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND table_type = 'BASE TABLE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.091ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.154ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.070ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'tokens'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[4.231ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'tokens'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.366ms] [34;1m[rows:-][0m SELECT * FROM "tokens" LIMIT 5
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.370ms] [34;1m[rows:-][0m SELECT * FROM "tokens" LIMIT 5
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.884ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'tokens' AND constraint_type = 'UNIQUE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.321ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'tokens' AND constraint_type = 'UNIQUE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[5.166ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'tokens'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.705ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'tokens'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.386ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.362ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'tokens'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.289ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.315ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.235ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.306ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.263ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.272ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.231ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.324ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.287ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'hash') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.279ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'hash') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.193ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.259ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.223ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'expiry') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.224ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'expiry') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.224ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'scope') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.258ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'tokens' AND column_name = 'scope') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'tokens' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.590ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_deleted_at' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.668ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_deleted_at' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.583ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_user_id' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.531ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_user_id' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.848ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_expiry' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.560ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_expiry' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.828ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_scope' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.531ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'tokens' AND indexname = 'idx_tokens_scope' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.544ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND table_type = 'BASE TABLE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.504ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND table_type = 'BASE TABLE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.102ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.136ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.586ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'events'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.757ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'events'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.393ms] [34;1m[rows:-][0m SELECT * FROM "events" LIMIT 5
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.354ms] [34;1m[rows:-][0m SELECT * FROM "events" LIMIT 5
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.866ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'events' AND constraint_type = 'UNIQUE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[4.885ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'events' AND constraint_type = 'UNIQUE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[6.473ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'events'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.586ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'events'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.416ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.426ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'events'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.294ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.318ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.256ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.285ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'title') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.293ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.274ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.273ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'location') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.265ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'location') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.257ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'start_time') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.270ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'start_time') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.202ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'end_time') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.306ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'end_time') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.216ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'created_by_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.201ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'created_by_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.172ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.214ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.192ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'image_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.212ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'image_url') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.253ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'total_tickets') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.199ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'total_tickets') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.262ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'tickets_remaining') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.198ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'tickets_remaining') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.234ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'category_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.226ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'category_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[18.110ms] [34;1m[rows:0][0m ALTER TABLE "events" ADD "price" numeric(10,2) DEFAULT 0
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.216ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'price') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.545ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.204ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.303ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.196ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.262ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.210ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'events' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.954ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND constraint_name = 'fk_events_category'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.646ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND constraint_name = 'fk_events_creator'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.421ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND constraint_name = 'fk_events_creator'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.422ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND constraint_name = 'fk_events_category'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.170ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'events' AND indexname = 'idx_events_deleted_at' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.182ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'events' AND indexname = 'idx_events_deleted_at' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.423ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND table_type = 'BASE TABLE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.459ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND table_type = 'BASE TABLE'
 
-2025/12/30 22:39:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.064ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.100ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.036ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[4.633ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.270ms] [34;1m[rows:-][0m SELECT * FROM "event_tickets" LIMIT 5
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.315ms] [34;1m[rows:-][0m SELECT * FROM "event_tickets" LIMIT 5
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.774ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'event_tickets' AND constraint_type = 'UNIQUE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[4.953ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'event_tickets' AND constraint_type = 'UNIQUE'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[5.637ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'event_tickets'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.390ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'event_tickets'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.460ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.417ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'event_tickets'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.298ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.301ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
 [0m[33m[0.264ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'event_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.282ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.225ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.253ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'price') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.225ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'price') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.209ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'quantity') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.219ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'quantity') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.194ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.250ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'description') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.205ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.235ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.199ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.207ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.237ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.226ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'event_tickets' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.476ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND constraint_name = 'fk_event_tickets_event'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.592ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND constraint_name = 'fk_event_tickets_event'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.474ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND constraint_name = 'chk_event_tickets_name'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.612ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'event_tickets' AND constraint_name = 'chk_event_tickets_name'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.586ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'event_tickets' AND indexname = 'idx_event_tickets_deleted_at' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.260ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'event_tickets' AND indexname = 'idx_event_tickets_deleted_at' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.575ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND table_type = 'BASE TABLE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.576ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND table_type = 'BASE TABLE'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.137ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.118ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.385ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'bookings'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[4.221ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'bookings'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.357ms] [34;1m[rows:-][0m SELECT * FROM "bookings" LIMIT 5
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.324ms] [34;1m[rows:-][0m SELECT * FROM "bookings" LIMIT 5
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[4.984ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'bookings' AND constraint_type = 'UNIQUE'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[4.957ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'bookings' AND constraint_type = 'UNIQUE'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[5.488ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'bookings'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[5.770ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'bookings'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.440ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.449ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
 		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
 		WHERE a.attnum > 0 -- hide internal columns
 		AND NOT a.attisdropped -- hide deleted columns
 		AND b.relname = 'bookings'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.369ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.324ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.322ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.297ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'user_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.221ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'event_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.274ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'event_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.213ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.223ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'status') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.185ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.177ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.193ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.198ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.179ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.192ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'bookings' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.490ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND constraint_name = 'fk_bookings_event'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.466ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND constraint_name = 'fk_bookings_user'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.380ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND constraint_name = 'fk_bookings_user'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.382ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND constraint_name = 'fk_bookings_event'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.106ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND constraint_name = 'chk_bookings_status'
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.169ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'bookings' AND constraint_name = 'chk_bookings_status'
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
-[0m[33m[0.181ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'bookings' AND indexname = 'idx_bookings_deleted_at' AND schemaname = CURRENT_SCHEMA()
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.179ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'bookings' AND indexname = 'idx_bookings_deleted_at' AND schemaname = CURRENT_SCHEMA()
 
-2025/12/30 22:39:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:86
-[0m[33m[1.619ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'price'
-[Event Finder] 2025/12/30 22:39:26 🚀 Starting server on http://localhost:5000
-[Event Finder] 2025/12/30 22:39:26 listen tcp :5000: bind: address already in use
-exit status 1
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.161ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND table_type = 'BASE TABLE'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.074ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.978ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'ticketing_db' AND table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.350ms] [34;1m[rows:-][0m SELECT * FROM "booking_items" LIMIT 5
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.372ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'booking_items' AND constraint_type = 'UNIQUE'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.797ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'ticketing_db' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'booking_items'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.144ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'booking_items'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.205ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.206ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'booking_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.252ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'ticket_type_id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.237ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'quantity') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.199ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'price_at_purchase') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.189ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.170ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.179ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND column_name = 'deleted_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'booking_items' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.137ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND constraint_name = 'fk_booking_items_ticket_type'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.123ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.table_constraints WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'booking_items' AND constraint_name = 'fk_bookings_booking_items'
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:75
+[0m[33m[0.149ms] [34;1m[rows:1][0m SELECT count(*) FROM pg_indexes WHERE tablename = 'booking_items' AND indexname = 'idx_booking_items_deleted_at' AND schemaname = CURRENT_SCHEMA()
+
+2026/01/02 12:18:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/config/database.go:87
+[0m[33m[1.818ms] [34;1m[rows:1][0m SELECT count(*) FROM INFORMATION_SCHEMA.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'events' AND column_name = 'price'
+[Event Finder] 2026/01/02 12:18:11 🚀 Starting server on http://localhost:5000
+
+2026/01/02 12:18:45 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[1.142ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:18:45 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.661ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:18:55 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.772ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:18:55 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[5.918ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:02 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.580ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:02 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.406ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:04 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.710ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:04 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.417ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.656ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.483ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.667ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.674ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.534ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.598ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.478ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:35 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.501ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:35 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.474ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:35 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.720ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:19:35 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.482ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:07 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.608ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.819ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.664ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:12 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.623ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:12 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.601ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:12 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.684ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:12 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.538ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:13 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[1.285ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:13 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.756ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:18 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[3.002ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:18 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.959ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:22 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.536ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:22:22 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.466ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:23:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/user_store.go:40
+[0m[33m[1.032ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE email = 'jane@mail.com' AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:23:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:32
+[0m[33m[14.121ms] [34;1m[rows:1][0m INSERT INTO "tokens" ("created_at","updated_at","deleted_at","hash","user_id","expiry","scope") VALUES ('2026-01-02 12:23:06.385','2026-01-02 12:23:06.385',NULL,'<binary>',5,'2026-01-03 12:23:06.385','auth') RETURNING "id"
+
+2026/01/02 12:28:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[1.094ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:26.584') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.625ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.460ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[1.293ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:26.588') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.652ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.475ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.697ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.466ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.571ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:30.441') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.223ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.202ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.386ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:30.444') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.252ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.201ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.635ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.365ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.564ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:34.01') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.213ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.181ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.575ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:34.012') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.287ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.264ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:35 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.671ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:35 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.515ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:38 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[1.773ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:38.129') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:38 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[1.073ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:38 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.561ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:38 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.478ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:38.135') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:38 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.330ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:38 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.227ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:40 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.692ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:40 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.440ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:43 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.415ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:43') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:43 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.198ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:43 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.168ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:43 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.345ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:43.002') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:43 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.211ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:43 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.191ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:44 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.643ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:44 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.367ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:46 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.601ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:46 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.371ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:28:47 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.648ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:47.753') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:47 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.266ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:47 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.239ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:28:47 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.437ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:28:47.755') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:28:47 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.287ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:28:47 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.301ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:29:22 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.713ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:29:22 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.648ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:29:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.502ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:29:27.199') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:29:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.279ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:29:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.240ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:29:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.438ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:29:27.202') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:29:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.255ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:29:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.198ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:29:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.674ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:29:34 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.551ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:30:24 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[1.077ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:30:24 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.636ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:30:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.590ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:30:26.057') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:30:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.182ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:30:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.143ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:30:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.319ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:30:26.06') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:30:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.202ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:30:26 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.162ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:30:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.566ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:30:30 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.503ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:30:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.409ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:30:31.592') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:30:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.141ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:30:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.128ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:30:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.352ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:30:31.594') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:30:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.179ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:30:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.188ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:30:32 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.422ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:30:32 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.348ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:31:32 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.463ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:31:32.114') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:31:32 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.230ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:32:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[1.169ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:32:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[1.071ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:32:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.501ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:32:11.688') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:32:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.227ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:32:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.221ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:32:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.371ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:32:11.692') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:32:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.218ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:32:11 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.231ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:32:12 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.514ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:32:12 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.622ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:32:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.409ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:32:25.304') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:32:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.141ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:32:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.137ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:32:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.393ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:32:25.307') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:32:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.208ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:32:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.143ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:18 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.593ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:18 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.421ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:20 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.442ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:35:20.969') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:35:20 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.168ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:35:20 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.177ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:20 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.244ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:35:20.972') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:35:20 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.180ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:35:20 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.154ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:22 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.521ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:22 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.334ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.414ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:35:25.062') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:35:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.164ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:35:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.140ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.321ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:35:25.065') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:35:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.227ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:35:25 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.176ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.557ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:27 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.501ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.481ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:35:29.794') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:35:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.186ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:35:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.193ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.365ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:35:29.797') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:35:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.196ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:35:29 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.188ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:35:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.690ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:35:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.449ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:38:28 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.426ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:38:28.759') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:38:28 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.149ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:38:28 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.188ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:38:28 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.320ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:38:28.762') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:38:28 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.165ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:38:28 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.177ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:38:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.767ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:38:31 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.436ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:38:36 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:39
+[0m[33m[1.305ms] [34;1m[rows:1][0m SELECT * FROM "events" WHERE "events"."id" = 5 AND "events"."deleted_at" IS NULL ORDER BY "events"."id" LIMIT 1
+
+2026/01/02 12:38:36 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:39
+[0m[33m[0.685ms] [34;1m[rows:1][0m SELECT * FROM "events" WHERE "events"."id" = 5 AND "events"."deleted_at" IS NULL ORDER BY "events"."id" LIMIT 1
+
+2026/01/02 12:38:44 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.706ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:38:44 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.579ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:38:55 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:39
+[0m[33m[0.695ms] [34;1m[rows:1][0m SELECT * FROM "events" WHERE "events"."id" = 7 AND "events"."deleted_at" IS NULL ORDER BY "events"."id" LIMIT 1
+
+2026/01/02 12:38:55 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:39
+[0m[33m[0.362ms] [34;1m[rows:1][0m SELECT * FROM "events" WHERE "events"."id" = 7 AND "events"."deleted_at" IS NULL ORDER BY "events"."id" LIMIT 1
+
+2026/01/02 12:39:04 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.636ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:39:04 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.504ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:39:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.405ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:39:06.924') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:39:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.182ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:39:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.180ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:39:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.363ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:39:06.926') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:39:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.206ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:39:06 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.204ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:39:09 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.578ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:39:09 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/events_store.go:57
+[0m[33m[0.395ms] [34;1m[rows:16][0m SELECT * FROM "events" WHERE "events"."deleted_at" IS NULL ORDER BY created_at asc
+
+2026/01/02 12:45:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.566ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:45:10.034') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:45:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.271ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:45:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.239ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL
+
+2026/01/02 12:45:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:51
+[0m[33m[0.354ms] [34;1m[rows:1][0m SELECT * FROM "tokens" WHERE (hash = '<binary>' AND scope = 'auth' AND expiry > '2026-01-02 12:45:10.037') AND "tokens"."deleted_at" IS NULL ORDER BY "tokens"."id" LIMIT 1
+
+2026/01/02 12:45:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/token_store.go:57
+[0m[33m[0.231ms] [34;1m[rows:1][0m SELECT * FROM "users" WHERE "users"."id" = 5 AND "users"."deleted_at" IS NULL ORDER BY "users"."id" LIMIT 1
+
+2026/01/02 12:45:10 [32m/home/clint_okumu/Projects/event-finder/backend/internal/store/bookings_store.go:79
+[0m[33m[0.192ms] [34;1m[rows:0][0m SELECT * FROM "bookings" WHERE user_id = 5 AND "bookings"."deleted_at" IS NULL

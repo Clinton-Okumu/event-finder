@@ -23,7 +23,7 @@ export default function EventsGrid({ events }: EventsGridProps) {
           key={event.id}
           id={event.id}
           title={event.title}
-          date={event.date}
+          start_time={event.start_time}
           image_url={event.image_url}
           location={event.location}
           description={event.description}

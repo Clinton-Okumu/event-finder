@@ -25,6 +25,7 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 	r.Get("/health", app.HealthChecker)
 	r.Post("/register", app.UserHandler.Register)
 	r.Post("/login", app.TokenHandler.Login)
+	r.Get("/validate-token", app.TokenHandler.ValidateToken)
 
 	// API routes
 	r.Group(func(r chi.Router) {
@@ -32,7 +33,6 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 		r.Use(app.Middleware.Authenticate)
 
 		// Auth routes
-		r.Get("/validate-token", app.TokenHandler.ValidateToken)
 		r.Post("/logout", app.TokenHandler.Logout)
 
 		// Users
@@ -113,6 +113,14 @@ func SetUpRoutes(app *app.Application) *chi.Mux {
 				r.Put("/{id}", app.BookingItemHandler.UpdateBookingItem)
 				r.Delete("/{id}", app.BookingItemHandler.DeleteBookingItem)
 			})
+		})
+
+		// Tickets - user-facing ticket management
+		r.Route("/tickets", func(r chi.Router) {
+			// All ticket routes require authentication
+			r.Get("/", app.TicketsHandler.GetUserTickets)
+			r.Post("/", app.TicketsHandler.BookTicket)
+			r.Delete("/{id}", app.TicketsHandler.CancelTicket)
 		})
 	})
 
