@@ -1,29 +1,54 @@
 /**
  * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
+ * Colors match frontend's OKLCH theme exactly
  */
 
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
-
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    text: '#030712',
+    background: '#ffffff',
+    tint: '#9336ea',
+    icon: '#6a7282',
+    tabIconDefault: '#9ca3af',
+    tabIconSelected: '#9336ea',
+    card: '#ffffff',
+    border: '#e5e7eb',
+    input: '#e5e7eb',
+    primary: '#9336ea',
+    primaryForeground: '#faf7fe',
+    secondary: '#f4f4f5',
+    secondaryForeground: '#18181b',
+    muted: '#f3f4f6',
+    mutedForeground: '#6a7282',
+    accent: '#f3f4f6',
+    accentForeground: '#101828',
+    destructive: '#e7000b',
+    destructiveForeground: '#f8f8f8',
+    ring: '#99a1af',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    text: '#f9fafb',
+    background: '#030712',
+    tint: '#a957f7',
+    icon: '#99a1af',
+    tabIconDefault: '#6a7282',
+    tabIconSelected: '#a957f7',
+    card: '#101828',
+    border: '#ffffff',
+    input: '#ffffff',
+    primary: '#a957f7',
+    primaryForeground: '#faf7fe',
+    secondary: '#27272a',
+    secondaryForeground: '#fafafa',
+    muted: '#1e2939',
+    mutedForeground: '#99a1af',
+    accent: '#1e2939',
+    accentForeground: '#f9fafb',
+    destructive: '#ff6467',
+    destructiveForeground: '#f8f8f8',
+    ring: '#6a7282',
   },
 };
 
